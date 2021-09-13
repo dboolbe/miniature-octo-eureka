@@ -10,6 +10,12 @@ public class Multicast {
         MulticastReceiver multicastReceiver = new MulticastReceiver("230.0.0.0", 4446);
         multicastReceiver.start();
         
+        try {
+            Thread.sleep(5000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        
         MulticastTransmitter multicastTransmitter = new MulticastTransmitter("230.0.0.0", 4446);
         multicastTransmitter.multicast("Hello, World!");
         multicastTransmitter.multicast("Chao, World!");
